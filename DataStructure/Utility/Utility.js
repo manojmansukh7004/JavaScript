@@ -67,12 +67,7 @@ module.exports={
         
         var stk=new st.Stack();
         for(var i=0;i<exp.length;i++){
-            var ch=exp.charAt(var util=require('./Utility/Utility');
-            var stack=require('./Utility/Stack');
-            var link=require('./Utility/LinkedList');
-            
-            var primeNumbers=util.primeNumber(1000);
-            i);
+            var ch=exp.charAt(i);
             //console.log(ch);
             if(ch=="{" || ch=="[" || ch=="("){
                 stk.push(ch);
@@ -196,7 +191,7 @@ module.exports={
         }   
              return arr;
     },
-    checkAnagram(str1, str2) {
+    checkAnagram(str1,str2) {
         //var str1=13,13,11;
         //var str2=23,11,19;
         var check=false;
@@ -240,7 +235,26 @@ module.exports={
             }
         }
         return(arr);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
-    }
+    },
+    isLeapYear(year) {
+        /*
+        * ensure year is of four digit
+        */
+        //condition for checking leap 
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
+    day(month,days, year) {
+        var y0 = year - Math.floor((14 - month) / 12);
+        var x = y0 + Math.floor((y0 / 4)) - Math.floor((y0 / 100)) + Math.floor((y0 / 400));
+        m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
+        var d0 = (days + x + Math.floor((31 * m0) / 12)) % 7;
+        return d0;
+    },
 }
 
 
