@@ -1,18 +1,15 @@
 var util=require('./Utility/Utility');
 var staklink=require('./Utility/StackUSingLinkList');
+var que=require('./Utility/QueueUsingLinkList');
+var queue= new que.QueueUsingLinkList();
+var list=require('./Utility/LinkedList');
+var ll=new list.LinkedList();
 
-var stk=new staklink.StackUsingLinkList();
-var m=stk.isEmpty();
-console.log(m);
-stk.push(10);
-stk.push(20);
-stk.push(30);
-//stk.push(40);
-//stk.display();
-//stk.pop();
-//stk.display();
-var top=stk.peek();
-console.log(top);
-
-//var n=stk.isEmpty();
-//console.log(top);
+ll.addElement(10);
+ll.addElement(50);
+ll.addElement(670);
+ll.addElement(4);
+ll.addElement(0);
+ll.printList();
+ll.sort();
+ll.printList();

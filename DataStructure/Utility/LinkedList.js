@@ -102,8 +102,6 @@ isempty(){
         console.log("list is empty...")
     }
 }
-
-
  printList() {     
     var current=this.head;
     var str="";
@@ -112,27 +110,32 @@ isempty(){
         current=current.next;
     }
     console.log(str);
+    return str;
 }
 sort() {
-    var temp;
-    temp = this.head;
-    var p = this.size;
-    while (p > 0) {
-        temp = this.head;
-        while (temp.next !== null) {
-            if ((temp.data) > (temp.next.data)) {
-                var t = temp.data;
-                temp.data = temp.next.data;
-                temp.next.data = t;
+    var current=this.head;
+     var index;
+     if(this.head==null){
+         return;
+     }
+    else{
+        while(current!=null){
+             index=current.next;
+            while(index!=null){
+                if(current.data>index.data){
+                    console.log(current.data);
+                    console.log(index.data);
+                    var temp=current.data;
+                    current.data=index.data;
+                 index.data=temp;
+                }
+                index=index.next;
             }
-            temp = temp.next;
-        }
-        p--;
+        current=current.next;
+        }    
     }
 }
-
 }
-  
 module.exports={
     LinkedList
 }

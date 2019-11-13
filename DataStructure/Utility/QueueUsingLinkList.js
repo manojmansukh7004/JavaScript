@@ -12,7 +12,7 @@ class QueueUsingLinkList{
     }
     isempty(){
        /// console.log("mj");
-        if(this.front==this.rear==null){
+        if(this.rear==null){
             return true;
         }return false;
     }
@@ -20,7 +20,7 @@ class QueueUsingLinkList{
         return this.size;
     }
     enqueue(data){
-    
+        
         var node=new Node(data);
         if(this.rear==null){
             this.front=this.rear=node;
@@ -41,7 +41,14 @@ class QueueUsingLinkList{
 
             if (this.front == null) 
             this.rear = null; 
-        return node;
+        return temp.data;
+    }
+    display(){
+        var arr="".data;
+        while (this.rear!=null){
+            arr+= "->"+this.dequeue();
+        }
+        console.log(arr);
     }
 }
 

@@ -13,7 +13,7 @@ module.exports={
     //UnOrder Link List 
     unOrder(str){
         var ll=new list.LinkedList();
-       // Console.log(str);
+     
         for(var i=0;i<str.length;i++)
         ll.addElement(str[i])
         ll.printList();
@@ -24,14 +24,15 @@ module.exports={
             //element found than remove element
             console.log("element found . \n elemnt should be deleted:");
             ll.removeElement(word);
-             ll.printList();
+             var data=ll.printList();
+             fs.writeFileSync("UnOrderOpt.txt",data,'utf-8');
         }
         else{
             //element not found than add element
             console.log("element not found . \n elemnt should be added:");
             var str1= ll.addElement(word);
-            ll.printList();
-
+            var data=ll.printList();
+            fs.writeFileSync("UnOrderOpt.txt",data,'utf-8');
          }
     },
 
@@ -43,7 +44,10 @@ module.exports={
     
         for(var i=0;i<str.length;i++)
         ll.addElement(str[i]);
+        console.log("Original list:");
+        ll.printList();
         ll.sort();
+        console.log("sorted list:");
         ll.printList();
 
           //take input for search word in list
@@ -52,14 +56,17 @@ module.exports={
              //element found than remove element
             console.log("element found . \n elemnt should be deleted:");
             ll.removeElement(no);
-             ll.printList();
+            ll.sort();
+             var data=ll.printList();
+             fs.writeFileSync("orderOpt.txt",data,'utf-8');
         }
         else{
             //element not found than add element
             console.log("element not found . \n elemnt should be added:");
-            var str1= ll.addElement(no);
-            ll.sort(str1);
-             ll.printList();
+            ll.addElement(no);
+            ll.sort();
+            var data= ll.printList();
+            fs.writeFileSync("orderOpt.txt",data,'utf-8');
          }
     },
 
@@ -297,12 +304,29 @@ module.exports={
         },
     day(month,days, year) {
         var y0 = year - Math.floor((14 - month) / 12);
+        console.log(y0);
         var x = y0 + Math.floor((y0 / 4)) - Math.floor((y0 / 100)) + Math.floor((y0 / 400));
+        console.log(x);
         m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
+        console.log(m0);
         var d0 = (days + x + Math.floor((31 * m0) / 12)) % 7;
+        console.log(d0);
+
         return d0;
     },
-}
+    factorial(n){
+        var fact =1;
+        for(i=1;i<=n;i++){
+            fact=fact*i;
+        }return fact;
+    },
+    binaryTree(node){
+        var number=(Math.floor(this.factorial(2*node))/(this.factorial(node+1)*this.factorial(node)));
+        return number;
+    },
+    }
+
+
 
 
 

@@ -4,11 +4,9 @@ var rl=require('readline-sync');
 var util=require('./Utility/Utility');
 
 var ll=new list.LinkedList();
-var str=fs.readFileSync('Order.txt').toString().split(" ");
+var str=fs.readFileSync('order.txt').toString().split(" ");
 console.log(str);
-//str=ll.sorting(str);
-
-util.order(str);
-
+var arr=util.order(str);
+console.log(arr);
 
     
