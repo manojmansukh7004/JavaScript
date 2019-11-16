@@ -1,27 +1,29 @@
 var rl=require('readline-sync');
-var util=require('./utility/Util')
+var inventory=require('./utility/InventoryDetails')
 var fs=require('fs');
-var item=new util.Inventory();
+var item=new inventory.InventoryDetails();
 
 class InventoryManger {
     manage(){
-        var ch =rl.questionInt("press\n1. Add\n2. Delete\n3. Display\n4. Exit\n");
-        if (ch == 1) {
-            item.add()
-        }
-        else if (ch == 2) {
-            this.remove();
-        }
-        else if (ch == 3) {
-            this.display();
-        }
-        else if (ch == 4) {
-            this.exit();
-        }
-        else {
-            console.log("Invalid key/input ");
-        }
+        do{
+            var ch =rl.questionInt("press\n1. Add\n2. Delete\n3. Display\n4. Exit\n");
+            if (ch == 1) {
+                item.add()
+            }
+            else if (ch == 2) {
+                item.remove();
+            }
+            else if (ch == 3) {
+                item.display();
+            }
+            else if (ch == 4) {
+                return;
+            }
+            else {
+                console.log("Invalid key/input ");
+            }
+        }while(ch!=4)    
     }
 }  
-var inv=new InventoryManger()
-inv.manage();
+var invent=new InventoryManger()
+invent.manage();

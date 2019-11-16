@@ -82,7 +82,6 @@ class LinkedList{
             current=current.next;
         }   
     }
-
     searchElement(element){
         var current=this.head;
         var pos=0;
@@ -90,11 +89,11 @@ class LinkedList{
         while(current!=null){
             if(current.data==element){
                 //console.log("found");
-                return pos;
+                return true;
             }
             pos++;
             current=current.next;
-        }return -1;
+        }return false;
     }
 
 isempty(){

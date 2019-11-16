@@ -5,34 +5,32 @@ var list=require('../Utility/LinkedList');
 var st=require('../Utility/Stack');
 var dque=require('../Utility/Dequeue');
 var show = require('util');
+var LinkList=new list.LinkedList();
 
-//var algo=require('/home/admin1/Documents/ReactNative/Algorithamic')
 module.exports={
+    
+    //read UnOrder List File 
+    readFile(fileName){
+        var content=fs.readFileSync(fileName).toString().split(" ");
+        return content;
+    },
 
+    writeFile(fileName,data){
+          var content=fs.writeFileSync(fileName,data,'utf-8');
+          return content;
+    },
     //LinkList Data Structure
     //UnOrder Link List 
-    unOrder(str){
-        var ll=new list.LinkedList();
-     
-        for(var i=0;i<str.length;i++)
-        ll.addElement(str[i])
-        ll.printList();
-
-        //take input for search word in list
-        var word=rl.question("Enter the word you search:");
-        if(ll.searchElement(word)!=-1){
+    searchUnOrderList(word){
+        if(LinkList.searchElement(word)!=-1){
             //element found than remove element
-            console.log("element found . \n elemnt should be deleted:");
-            ll.removeElement(word);
-             var data=ll.printList();
-             fs.writeFileSync("UnOrderOpt.txt",data,'utf-8');
+            console.log("element found .\nelemnt should be deleted:");
+            return true;
         }
         else{
             //element not found than add element
-            console.log("element not found . \n elemnt should be added:");
-            var str1= ll.addElement(word);
-            var data=ll.printList();
-            fs.writeFileSync("UnOrderOpt.txt",data,'utf-8');
+           console.log("element not found .\n elemnt should be added:");
+           return false;
          }
     },
 
@@ -40,8 +38,7 @@ module.exports={
 //Order Link List
     order(str){
        
-        var ll=new list.LinkedList();
-    
+       
         for(var i=0;i<str.length;i++)
         ll.addElement(str[i]);
         console.log("Original list:");
@@ -59,6 +56,7 @@ module.exports={
             ll.sort();
              var data=ll.printList();
              fs.writeFileSync("orderOpt.txt",data,'utf-8');
+            
         }
         else{
             //element not found than add element
@@ -317,7 +315,8 @@ module.exports={
     factorial(n){
         var fact =1;
         for(i=1;i<=n;i++){
-            fact=fact*i;
+            factfs.readFileSync(fileName).toString().split(" ");
+            return content;=fact*i;
         }return fact;
     },
     binaryTree(node){
