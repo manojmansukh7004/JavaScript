@@ -1,43 +1,32 @@
-var util=require('./utility/utility');
-var rl=require('readline-sync')
-class Stock{
-    constructor(){
-        var content=util.readFile('./jsonFile/stock.json');
-        this.data=JSON.parse(content);
-        console.log(this.data);
-    }
-}
+var rl=require('readline-sync');
+var inventory=require('./utility/StockDetails')
+var fs=require('fs');
+var stock=new inventory.StockDetails();
 
-class StockReport extends Stock{
-    StockJson(){
-        //print Stock Name
-        this.displayStockName();
-        console.log("select the stock number:");
-        var ch=util.inputIntegerRead();
-        
-        //Display stock Details
-        this.displayStock(ch-1);
-        
-        //purches requried shares & calculate the total stock price 
-        var shares = rl.question("Enter no of shares you want to purchase or buy:");
-        if(shares>this.data.Stock[ch].StockValue) throw 'enter valid number'
-        var totalPrice=this.claculateStockPrice(ch,shares);
-        console.log("Total Stock Price:"+totalPrice);   
+class StockReport {
+    manage(){
+        do{
+            var ch =rl.questionInt("\npress\n1. Display available stock.\n2. information of specific stock\n3. shares you want to purchase or buy\n4. Exit\n");
+            if (ch == 1) {
+                stock.availableStock();
+            }
+            else if (ch == 2) {
+                stock.availableStock();
+                stock.infoStock();
+            }
+            else if (ch == 3) {
+                stock.availableStock();
+                var ch=stock.infoStock();
+                stock.buyStock(ch);
+            }
+            else if (ch == 4) {
+                return;
+            }
+            else {
+                console.log("Invalid key/input ");
+            }
+        }while(ch!=4)    
     }
-    displayStockName(){
-        for(var i=0;i<this.data.Stock.length;i++){
-            console.log((i+1)+"."+this.data.Stock[i].StockName);
-        }
-    }
-    displayStock(ch){
-        console.log("Stock Name :"+this.data.Stock[ch].StockName
-        +"\nNumber Of Shares:"+this.data.Stock[ch].StockValue+"\nStock Price:"
-        +this.data.Stock[ch].StockPrice);
-    }
-    claculateStockPrice(ch,shares){
-        var value=this.data.Stock[ch].StockPrice*shares;
-        return value
-    }
-}
-var stock=new StockReport();
-stock.StockJson();
+}  
+var invent=new StockReport()
+invent.manage();

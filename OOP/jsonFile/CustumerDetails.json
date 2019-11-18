@@ -1,0 +1,14 @@
+{
+    "Custumer":[
+        {
+            "UserName":"Manoj",
+            "Shares":50,
+            "Amount":2000
+        },
+        {
+            "UserName":"Siddhi",
+            "Shares":30,
+            "Amount":1500
+        }
+    ]
+}

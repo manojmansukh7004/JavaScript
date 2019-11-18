@@ -48,14 +48,11 @@ class InventoryDetails{
     }
     display(){
         console.log(this.data);
- 
     }
 
     //taking user input
     addRice(){
-        var _name=rl.question('enter the name :');
-        var _price=rl.question('enter the price : ');
-        var _weight=rl.question('enter the weight :');
+        
         this.data.Rice.push({
             name:_name,
             weight:_weight,
@@ -126,7 +123,13 @@ class InventoryDetails{
         if(Wheats=="absent")
         console.log("enter valid details.");
     }
-
+// userInput(){
+//     var _name=rl.question('enter the name :');
+//     var _price=rl.question('enter the price : ');
+//     var _weight=rl.question('enter the weight :');
+//     var value=new InventoryDetails(_name,_price,_weight);
+// return value;
+// }
 
 
 }
