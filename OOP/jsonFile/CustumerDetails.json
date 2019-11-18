@@ -1,14 +1,1 @@
-{
-    "Custumer":[
-        {
-            "UserName":"Manoj",
-            "Shares":50,
-            "Amount":2000
-        },
-        {
-            "UserName":"Siddhi",
-            "Shares":30,
-            "Amount":1500
-        }
-    ]
-}
+{"Custumer":[{"UserName":"Manoj","Shares":50,"Price":2000},{"UserName":"Siddhi","Shares":30,"Price3":1500},{"UserName":"Rani","Shares":"150","Price":"1500"}]}

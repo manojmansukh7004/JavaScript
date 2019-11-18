@@ -1,37 +1,27 @@
+var rl=require('readline-sync');
+var card=require('./utility/DeckCard');
+var deck=new card.DeckCard;
 
-class DeckOfCards{
-    cardShuffle(){
-        var suits = ["♣️", "♦️", "♥️", "♠️"];
-        var values = ["King", "Queen", "Jack", "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-        var count;
-        var n=values.length*suits.length;
-         // create new array of deck
-        var array=new Array(n);
-        for(var i=0;i<values.length;i++){
-            for(var j=0;j<suits.length;j++){
-                array[suits.length* i + j]=values[i]+suits[j];
-            }
-        }
-         // console.log(array);
+class DeckOfCards
+{   game(){
+        //create decks of Card 
+        var cards=deck.deckOfCard();
+        console.log(cards);
+        
+        //Number Of Cards.
+        var noOfCards=cards.length;
+        console.log(noOfCards);
+
         //Shuffle Card
-        for(var i=0;i<n;i++){
-            var r= i + parseInt(Math.random() * (n-i));
-            var temp=array[r];
-            array[r]=array[i];
-            array[i]=temp;
-       }
-      // console.log(array);
-      //Distribute the 9 cards to 4 Player & represent in 2D Array. 
-        var k=0;
-        var arr=new Array();
-        for(var i=0;i<4;i++){
-           arr[i]=new Array();
-           for(var j=0;j<8/4;j++){
-               arr[i][j]=array[k++];
-            }
-        }
-       console.log(arr);
-    }
+        var ShuffleCards=deck.shuffleCard(noOfCards,cards);
+        console.log(ShuffleCards);
+      
+        //Distribute the 9 cards to 4 Player & represent in 2D Array. 
+        var players=rl.questionInt("enter the no of Players:");
+        var cards=rl.questionInt("Enter the no Of cards distribute:")
+        var distribute=deck.diustributeCard(players,cards,ShuffleCards);
+        console.log(distribute);
+    }     
 }
-var card=new DeckOfCards();
-card.cardShuffle();
+    var play=new DeckOfCards();
+    play.game(); 

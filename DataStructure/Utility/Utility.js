@@ -6,7 +6,7 @@ var st=require('../Utility/Stack');
 var dque=require('../Utility/Dequeue');
 var show = require('util');
 var LinkList=new list.LinkedList();
-
+var ll=new list.LinkedList()
 module.exports={
     
     //read UnOrder List File 
@@ -37,8 +37,6 @@ module.exports={
 //LinkList Data Structure
 //Order Link List
     order(str){
-       
-       
         for(var i=0;i<str.length;i++)
         ll.addElement(str[i]);
         console.log("Original list:");
@@ -316,7 +314,8 @@ module.exports={
         var fact =1;
         for(i=1;i<=n;i++){
             factfs.readFileSync(fileName).toString().split(" ");
-            return content;=fact*i;
+            return content;
+            fact=fact*i;
         }return fact;
     },
     binaryTree(node){

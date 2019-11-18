@@ -23,7 +23,8 @@ class QueueUsingLinkList{
         
         var node=new Node(data);
         if(this.rear==null){
-            this.front=this.rear=node;
+            this.front=node;
+            this.rear=node;
             this.size++;
             return
         }
@@ -44,9 +45,26 @@ class QueueUsingLinkList{
         return temp.data;
     }
     display(){
-        var arr="".data;
+    
+        var arr="";
         while (this.rear!=null){
-            arr+= "->"+this.dequeue();
+            arr+=this.dequeue()+" ";
+        }
+        console.log(arr);
+        return arr;
+    }
+    sort(){
+        console.log("mj");
+        var arr="";
+        var current=this.front;
+        while(current!=this.rear){
+            if(current.data>current.next.data){
+                var temp=current.data;
+                current=current.next.data;
+                current.next=temp;
+                arr+=current.data;
+            }
+            current=current.next;
         }
         console.log(arr);
     }
