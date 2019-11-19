@@ -5,6 +5,7 @@ var stk=require('../../DataStructure/Utility/StackUSingLinkList')
 var stack=new stk.StackUsingLinkList();
 
 class Stock {
+    
     constructor() {
         var content=util.readFile('./jsonFile/CompanyStock.json');
         this.comp=JSON.parse(content);
@@ -42,11 +43,11 @@ class StockStackLink extends Stock{
     printStack(){
         var current=stack.top;
         while (current !== null) {
-            console.log("\nName Of the company:" + current.comp.NameOfCompany);
-            console.log("Symbol of the company:" + current.comp.Symbol);
-            console.log("Number of share:" + current.comp.NoOfShare);
-            console.log("Price:" + current.comp.Price);
-            current = 
+            console.log("\nName Of the company:" + current.data.NameOfCompany);
+            console.log("Symbol of the company:" + current.data.Symbol);
+            console.log("Number of share:" + current.data.NoOfShare);
+            console.log("Price:" + current.data.Price);
+            current = current.next
         }
     }
     buyShare(){

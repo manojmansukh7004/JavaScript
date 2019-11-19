@@ -6,22 +6,19 @@ var buySell=new stock.BuySellStock();
 class BuySellStock {
     manage(){
         do{
-            var ch =rl.questionInt("\npress\n1. Display available stock.\n2. information of specific stock\n3. shares you want to purchase or buy\n4. Exit\n");
+            var ch =rl.questionInt("\npress\n1. Purches Shares.\n2. Sell shares. \n3. Exit\n");
             if (ch == 1) {
                 buySell.availableStock();
+                var ch=buySell.infoStock();
+                console.log(ch)
+                buySell.purchaseStock(ch)
             }
             else if (ch == 2) {
                 buySell.availableStock();
                 buySell.infoStock();
             }
             else if (ch == 3) {
-                buySell.availableStock();
-                var ch=
-                buySell.infoStock();
-                buySell.buyStock(ch);
-            }
-            else if (ch == 4) {
-                return;
+                return
             }
             else {
                 console.log("Invalid key/input ");
@@ -31,6 +28,6 @@ class BuySellStock {
 }  
 //var invent=new BuySellStock()
 //invent.manage();
-module.exports={
-    BuySellStock
+ module.exports={
+     BuySellStock
 }

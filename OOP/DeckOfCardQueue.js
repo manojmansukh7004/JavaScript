@@ -21,7 +21,9 @@ class DeckOfCards
         for (var k = 0; k < noOfCards; k++) {
             queue.enqueue(ShuffleCards[k]);
         }
+            
 
+       //queue.display();
         //Distribute 9 cards to 4 players
         console.log("Distributing 9 cards to palyers");
         var k = 0;
