@@ -2,7 +2,8 @@ var util=require('./Utility/Utility');
 
 var primenumbers = util.primeNumber(1000);
 //console.log(primenumbers.length);
-
+ 
+var array=[[]];
 var row=0,range=100;
 var k=0;
 var value=false;
@@ -38,3 +39,4 @@ var value=false;
 //print anagram values
 for (i = 0; i < 10; i++)
    console.log(array);
+

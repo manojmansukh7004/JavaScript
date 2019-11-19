@@ -1,6 +1,6 @@
 var fs=require('fs');
 var rl=require('readline-sync');
-var que=require('../Utility/Queue');
+var que=require('../Utility/QueueUsingLinkList');
 var list=require('../Utility/LinkedList');
 var st=require('../Utility/Stack');
 var dque=require('../Utility/Dequeue');
@@ -37,30 +37,34 @@ module.exports={
 //LinkList Data Structure
 //Order Link List
     order(str){
-        for(var i=0;i<str.length;i++)
-        ll.addElement(str[i]);
+        for(var i=0;i<str.length;i++){
+            ll.addElement(str[i]);
+            ll.sort();
+        }
+        
         console.log("Original list:");
         ll.printList();
-        ll.sort();
-        console.log("sorted list:");
-        ll.printList();
+        //ll.sort();
+        //console.log("sorted list:");
+        //ll.printList();
 
           //take input for search word in list
         var no=rl.question("Enter the no you search:");
-        if(ll.searchElement(no)!=-1){
+        if(ll.searchElement(no)==no){
              //element found than remove element
             console.log("element found . \n elemnt should be deleted:");
             ll.removeElement(no);
-            ll.sort();
+            //ll.sort();
              var data=ll.printList();
              fs.writeFileSync("orderOpt.txt",data,'utf-8');
             
         }
         else{
+            
             //element not found than add element
             console.log("element not found . \n elemnt should be added:");
             ll.addElement(no);
-            ll.sort();
+           ll.sort();
             var data= ll.printList();
             fs.writeFileSync("orderOpt.txt",data,'utf-8');
          }
@@ -115,7 +119,7 @@ module.exports={
     cashCounter(balance){
         var totalAmt=balance;
         console.log(totalAmt);
-        var queue= new que.Queue();
+        var queue= new que.QueueUsingLinkList();
 
         //take input no of user in queue
         var pepole=rl.questionInt("enter the no pepole in queue:");
@@ -160,23 +164,60 @@ module.exports={
     },
     //Dequeue Data Structure
     //Palindrome-Checker
-    checkPalindrome(str){
-        var dqueue=new dque.Dequeue();
-        var count=0;
-        var Palindrome=false;
-        for(var i=0;i<str.length;i++){
-            dqueue.addRear(str[i]);
+    // checkPalindrome(str){
+    //     var dqueue=new dque.Dequeue();
+    //     var count=0;
+    //     var Palindrome=false;
+    //     for(var i=0;i<str.length;i++){
+    //         dqueue.addRear(str[i]);
+    //     }
+    //     dqueue.qprint();
+    //     while(!dqueue.isEmpty() && dqueue.front!==dqueue.rear){
+    //         var str1="",str2="";
+    //         str1=dqueue.removeRear();
+    //         console.log(str1);
+    //         str2=dqueue.removeFront();
+    //         console.log(str2);
+    //         if(str1===str2){
+    //             console.log("in if");
+                
+    //             count++;
+    //             Palindrome=true;
+    //         }
+    //     }
+    //     if(Palindrome==true){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // },
+    checkPalindromeWord(word) {
+
+
+        var size = word.length;
+        var isPalindrome = true;
+
+        //Dequeue
+        let dqu =new dque.Dequeue();
+        // var ch = word.split(" ");
+
+        for (let i = 0; i < size; i++) {
+            //To add element from rear
+            dqu.addRear(word[i]);
         }
-        dqueue.qprint();
-        while(!dqueue.isEmpty() && dqueue.front!==dqueue.rear){
-            var str="",str2="";
-            str1=dqueue.removeRear();
-            str2=dqueue.removeFront();
-            if(str1===str2){
-                count++;
+        while (!dqu.isEmpty() && dqu.front != dqu.rear) {
+            //if removed element from front is not equal to removed element from rear then returns false
+            if (dqu.removeFront() == dqu.removeRear()) {
+                isPalindrome = true;
+            }
+            else {
+                return false;
             }
         }
+        return true;
     },
+
     primeNumber(range){
         var count;
         var pos=0;
@@ -300,21 +341,21 @@ module.exports={
         },
     day(month,days, year) {
         var y0 = year - Math.floor((14 - month) / 12);
-        console.log(y0);
+        //console.log(y0);
         var x = y0 + Math.floor((y0 / 4)) - Math.floor((y0 / 100)) + Math.floor((y0 / 400));
-        console.log(x);
+        //console.log(x);
         m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
-        console.log(m0);
+       // console.log(m0);
         var d0 = (days + x + Math.floor((31 * m0) / 12)) % 7;
-        console.log(d0);
+       // console.log(d0);
 
         return d0;
     },
     factorial(n){
         var fact =1;
         for(i=1;i<=n;i++){
-            factfs.readFileSync(fileName).toString().split(" ");
-            return content;
+            //fact=fs.readFileSync(fileName).toString().split(" ");
+            //return content;
             fact=fact*i;
         }return fact;
     },

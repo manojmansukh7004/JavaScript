@@ -51,33 +51,55 @@ class Dequeue{
         }
     }
     removeFront(){
-        if(this.front==null){
-            return false;
-        }
-        if(this.rear==this.front){
-            this.rear=null;
-            this.front=null;
-            this.size--;
+        //If deque is empty
+    if (this.front == null) {
+        return false;
+    }
 
-        }
-        else{
-           var temp=this.rear;
-           while(temp.next!=this.front){
-               temp=temp.next;
-           }
-           this.front=temp;
-           this.front.next=null
+    //If deque holds only one value
+    if (this.rear == this.front) {
+        let data = this.rear.value;
+        this.rear = null;
+        this.front = null;
+        return data;
+    }
+    else {
 
+        let data = this.front.value;
+        let temp = this.rear;
+
+        //traverse through the deque
+        while (temp.next != this.front) {
+            temp = temp.next;
         }
+
+        //Make front as a temp and next of front null
+        this.front = temp;
+        this.front.next = null;
+        return data;
+    }
     }
     removeRear(){
-        if(this.front==this.rear){
-            this.front=null;
-            this.rear=null;
-        }
-        else{
-            this.rear=this.rear.next;
-        }
+        //if deque is empty
+    if (this.rear == null) {
+        return false;
+    }
+
+    //If deque holds only one element
+    if (this.rear == this.front) {
+        let data = this.rear.value;
+        this.rear = null;
+        this.front = null;
+        console.log(data);
+        return data;
+    }
+    else {
+
+        //Remove from rear
+        let data = this.rear.value;
+        this.rear = this.rear.next;
+        return data;
+    }
     }
     qsize(){
         return this.size;

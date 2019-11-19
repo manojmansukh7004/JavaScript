@@ -122,8 +122,8 @@ sort() {
              index=current.next;
             while(index!=null){
                 if(current.data>index.data){
-                    console.log(current.data);
-                    console.log(index.data);
+                    //console.log(current.data);
+                    //console.log(index.data);
                     var temp=current.data;
                     current.data=index.data;
                  index.data=temp;

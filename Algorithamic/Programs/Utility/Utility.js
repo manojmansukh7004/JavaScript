@@ -29,7 +29,7 @@ module.exports={
             }
         }
     }
-    console.log(arr);
+    return arr;
         },
 
         selectionSort(arr){
@@ -87,20 +87,6 @@ module.exports={
         
         },
         
-   
-        
-        
-
-
-
-
-
-
-
-
-
-
-
 
         }
     

@@ -1,7 +1,7 @@
 var rl=require('readline-sync');
 var link=require('./Utility/LinkedList');
-var fs=require("fs");
-var ds=require('@da')
+ var fs=require("fs");
+// var ds=require('@da')
 
 //read file from hash.txt
 var file=fs.readFileSync('Hash.txt').toString();
@@ -14,6 +14,8 @@ var arr = [];
 for(var i=0;i<str.length;i++){
     //Hash Function
     var k=str[i] % 11;
+    console.log(k);
+    
     
     //add Element in hash list
     if(arr[k]==undefined){
@@ -35,13 +37,14 @@ for(var i=0;i<10;i++){
 
 //search element in list
 var no =rl.questionInt("Enter the you want to search in the list:");
-var found=true;
+//var found=true;
 var k=no%11;
+
 
 //check element present at hash list
 // if present than add otherwise Remove
 if(arr[k] != undefined){
-    if(arr[k].searchElement(no)!=-1){
+    if(arr[k].searchElement(no)== no){
         console.log("element found . \n elemnt should be deleted:")
          arr[k].removeElement(no);
         }

@@ -1,9 +1,6 @@
-var qu=require('../DataStructure/Utility/QueueUsingLinkList')
-var queue=new qu.QueueUsingLinkList();
+var sort=require('../Algorithamic/Programs/Utility/Utility');
+var uti
 
-queue.enqueue(12)
-queue.enqueue(43)
-queue.enqueue(1)
-var arr=queue.display();
-queue.sort(arr)
-queue.display()
+var arr=new Array(2,34,3,66,75,0,8);
+var sorting=sort.bubbleSort(arr);
+console.log();
