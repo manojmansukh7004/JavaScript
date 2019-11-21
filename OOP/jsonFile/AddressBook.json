@@ -1,0 +1,18 @@
+{
+    "person": [
+        {
+            "firstName": "Manoj",
+            "lastName": "Mansukh",
+            "address": "Mumbai",
+            "ID": "400023",
+            "zipCode": "400070"
+        },
+        {
+            "firstName": "Siddhi",
+            "lastName": "Mandavker",
+            "address": "Kokan",
+            "ID": "46868",
+            "zipCode": "411039"
+        }
+    ]
+}

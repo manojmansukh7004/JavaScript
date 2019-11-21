@@ -6,7 +6,7 @@ class Inventory{
         //read json file & store in inventory variable
         var data=fs.readFileSync('./jsonFile/inventory.json');
         this.inventory=JSON.parse(data);
-        console.log(this.inventory);
+        //console.log(details);
     }
 }
 

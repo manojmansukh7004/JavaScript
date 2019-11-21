@@ -52,9 +52,7 @@ class InventoryDetails{
 
     //taking user input
     addRice(){
-        var _name=rl.question('enter the name :');
-        var _price=rl.questionInt('enter the price : ');
-        var _weight=rl.questionInt('enter the weight :');        
+        
         this.data.Rice.push({
             name:_name,
             weight:_weight,
@@ -132,38 +130,6 @@ class InventoryDetails{
 //     var value=new InventoryDetails(_name,_price,_weight);
 // return value;
 // }
-inventorycalculate(){
-    //taking user input
-    console.log("Inventory Details: \n1.Rice \n2.Pulses\n3.Wheat");
-    var ch =rl.questionInt("Enter your choice:");
-    if(isNaN(ch))throw "enter valid choice."
-
-    switch(ch){
-        case 1:
-            var weight=rl.questionInt("enter how many kg you require:");
-            for(var i=0;i<this.data.Rice.length;i++){
-                console.log();
-                console.log("\tRise:"+this.data.Rice[i].name+"\n\tPrice:"+this.data.Rice[i].price+"\n\tfor "+ weight+ " kg price is "+weight* this.data.Rice[i].price);
-            }
-            break;
-
-            case 2:
-            var weight=rl.questionInt("enter how many kg you require:");
-            for(var i=0;i<this.data.Pulses.length;i++){
-                console.log();
-                console.log("\tRise:"+this.data.Pulses[i].name+"\n\tPrice:"+this.data.Pulses[i].price+"\n\tfor "+ weight+ " kg price is "+weight* this.data.Pulses[i].price);                
-            }  
-            break;
-
-            case 3:
-            var weight=rl.questionInt("enter how many kg you require:");
-            for(var i=0;i<this.data.Wheats.length;i++){
-                console.log();
-                console.log("\tRise:"+this.data.Wheats[i].name+"\n\tPrice:"+this.data.Wheats[i].price+"\n\tfor "+ weight+ " kg price is "+weight* this.data.Wheats[i].price);
-            } 
-            break;
-    }
-}
 
 
 }

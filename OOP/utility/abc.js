@@ -1,4 +1,4 @@
-var util=require('./utility/utility');
+var util=require('./utility');
 var rl=require('readline-sync')
 //var util=require('./u')
 
@@ -28,9 +28,9 @@ class SellShares extends Stock{
     }
     sellStock(choice){
         //console.log("mj")
-        var length=this.user.Custumer.length;
+        var length=this.data.Custumer.length;
          //purches requried shares & calculate the total stock price 
-        var shares = rl.question("Enter number of shares you want to Sell :");
+        var shares = rl.question("Enter number of shares you want to Sell or buy:");
         if(shares>length.Shares) throw 'enter valid number'
         
         //calculate total Stock price 
@@ -62,11 +62,9 @@ class SellShares extends Stock{
     }
     sellShares(shares,choice){
        // console.log(this.data.Company[choice].NameOfCompany)
-        this.user.Custumer[choice].Shares=this.user.Custumer[choice].Shares-shares;
+        this.user.Custumer[choice].NoOfShare=this.user.Custumer[choice].Shares-shares;
         return this.user.Custumer[choice].Shares;
     }
 }
 var ab=new SellShares()
 ab.availableUser();
-var ch=ab.userInfo();
-ab.sellStock(ch);

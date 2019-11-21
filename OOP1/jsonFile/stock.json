@@ -1,0 +1,19 @@
+{
+    "Stock":[
+        {
+            "StockName":"TATA",
+            "StockValue":50,
+            "StockPrice":2000
+        },
+        {
+            "StockName":"Reliance",
+            "StockValue":150,
+            "StockPrice":25000
+        },
+        {
+            "StockName":"AirJet",
+            "StockValue":200,
+            "StockPrice":5000
+        }
+    ]
+}

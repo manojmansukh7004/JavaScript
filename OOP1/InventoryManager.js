@@ -6,9 +6,7 @@ var item=new inventory.InventoryDetails();
 class InventoryManger {
     manage(){
         do{
-            console.log("\t\t\nInventory Management");
-            
-            var ch =rl.questionInt("press\n1. add Inventory\n2. Delete Inventory\n3. Display \n4. calculate Price \n5. Exit\n");
+            var ch =rl.questionInt("press\n1. Add\n2. Delete\n3. Display\n4. Exit\n");
             if (ch == 1) {
                 item.add()
             }
@@ -19,15 +17,12 @@ class InventoryManger {
                 item.display();
             }
             else if (ch == 4) {
-                item.inventorycalculate()
-            }
-            else if (ch == 5) {
                 return;
             }
             else {
                 console.log("Invalid key/input ");
             }
-        }while(ch!=5)    
+        }while(ch!=4)    
     }
 }  
 var invent=new InventoryManger()
